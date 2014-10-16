@@ -16,7 +16,7 @@ images:
 
   environment:
   - variable: LOGSTASH_CONFIG_URL
-    value: https://gist.githubusercontent.com/pblittle/0b937485fa4a322ea9eb/raw/logstash_linked.conf
+    value: https://gist.githubusercontent.com/pblittle/1b7a2f02cd16fa1c58e9/raw/logstash_linked_nxt.conf
 
   links:
   - service: elasticsearch
