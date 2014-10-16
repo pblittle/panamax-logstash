@@ -1,0 +1,31 @@
+---
+name: Logstash 1.4 with linked Elasticsearch
+description: Panamax template for building pblittle/docker-logstash
+keywords: logstash, elasticsearch, kibana
+type: Logstash
+documentation: 'https://github.com/pblittle/docker-logstash'
+
+images:
+- name: logstash
+  source: pblittle/docker-logstash:latest
+  type: Default
+
+  environment:
+  - variable: LOGSTASH_CONFIG_URL
+    value: https://gist.githubusercontent.com/pblittle/0b937485fa4a322ea9eb/raw/logstash_linked.conf
+
+  links:
+  - service: elasticsearch
+    alias: es
+
+  ports:
+  - host_port: '9200'
+    container_port: '9200'
+    proto: TCP
+  - host_port: '9292'
+    container_port: '9292'
+    proto: TCP
+
+- name: elasticsearch
+  source: barnybug/elasticsearch:1.1.1
+  type: Default
