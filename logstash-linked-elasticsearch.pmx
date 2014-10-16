@@ -6,6 +6,10 @@ type: Logstash
 documentation: 'https://github.com/pblittle/docker-logstash'
 
 images:
+- name: elasticsearch
+  source: barnybug/elasticsearch:1.1.1
+  type: Default
+
 - name: logstash
   source: pblittle/docker-logstash:latest
   type: Default
@@ -25,7 +29,3 @@ images:
   - host_port: '9292'
     container_port: '9292'
     proto: TCP
-
-- name: elasticsearch
-  source: barnybug/elasticsearch:1.1.1
-  type: Default
